@@ -1,4 +1,4 @@
-# Langchain RAG Tutorial
+# Langchain RAG 
 
 Install dependencies.
 
@@ -9,13 +9,18 @@ pip install -r requirements.txt
 Create the Chroma DB.
 
 ```python
-python create_database.py
+python chroma_creation.py
 ```
 
-Query the Chroma DB.
+Query the Chroma DB using the Model.
 
-```python
-python query_data.py 
-```
+```postman
+uvicorn llm:app --reload
+http://localhost:8000/answer
 
-You'll also need to set up an OpenAI account (and set the OpenAI key in your environment variable) for this to work.
+{
+    "query": "de quoi parle l'histoire de La naissance du serpent?",
+    "context": ""
+}
+
+You'll also need to set up a haggingface account (and set the haggingface key in your environment variable) for this to work.
